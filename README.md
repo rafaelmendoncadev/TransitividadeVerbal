@@ -19,6 +19,37 @@ npm start
 
 Abra [http://localhost:3000](http://localhost:3000).
 
+## Deploy na Vercel
+
+O projeto é uma aplicação Express com detecção automática pela Vercel (zero configuration). O arquivo `app.js` exporta a instância do Express e os assets estáticos ficam em `public/`.
+
+### Via Git (recomendado)
+
+1. Envie o repositório para GitHub, GitLab ou Bitbucket.
+2. Acesse [vercel.com/new](https://vercel.com/new) e importe o repositório.
+3. A Vercel detecta Express automaticamente — não é necessário comando de build nem diretório de saída.
+4. Clique em **Deploy**.
+
+### Via CLI
+
+```bash
+npm i -g vercel
+vercel          # preview
+vercel --prod   # produção
+```
+
+Para simular o ambiente da Vercel localmente:
+
+```bash
+vercel dev
+```
+
+### Notas
+
+- Arquivos em `public/` são servidos pela CDN da Vercel (CSS, JS).
+- Rotas dinâmicas (`/`, `/api/quiz`, etc.) são tratadas pelo Express em serverless.
+- Não há variáveis de ambiente obrigatórias para este projeto.
+
 ## Funcionalidades
 
 1. **Teoria** — VTD, VTI, VTDI, VI, VL, complementos, preposições e dicas práticas.
