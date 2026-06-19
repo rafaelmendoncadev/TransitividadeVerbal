@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transitividade Verbal - Professor Eiter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f0f3ff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005231",
+                        "primary-container": "#1a365d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-variant": "#d9e3f9",
+                        "surface-container": "#e7eeff",
+                        "inverse-primary": "#adc7f7",
+                        "surface-container-highest": "#d9e3f9",
+                        "on-surface": "#121c2c",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface-variant": "#43474e",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#455f88",
+                        "on-background": "#121c2c",
+                        "on-tertiary-fixed": "#410003",
+                        "on-tertiary-fixed-variant": "#920212",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#9ff5c1",
+                        "tertiary": "#4b0004",
+                        "on-secondary-container": "#167249",
+                        "on-primary-container": "#86a0cd",
+                        "primary-fixed-dim": "#adc7f7",
+                        "secondary": "#0a6c44",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9ff",
+                        "secondary-fixed": "#9ff5c1",
+                        "outline": "#74777f",
+                        "tertiary-container": "#73000b",
+                        "surface-container-high": "#dee8ff",
+                        "primary": "#002045",
+                        "on-tertiary-container": "#ff736b",
+                        "surface-dim": "#d0daf0",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#273141",
+                        "surface": "#f9f9ff",
+                        "on-secondary-fixed": "#002111",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#83d8a6",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "container-max": "1100px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "stack-xl": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-xl-mobile": ["Merriweather"],
+                        "headline-xl": ["Merriweather"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Merriweather"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "code-snippet": ["Inter"],
+                        "headline-md": ["Merriweather"]
+                    },
+                    "fontSize": {
+                        "headline-xl-mobile": ["30px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "headline-xl": ["40px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "30px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "code-snippet": ["15px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+            color: #121c2c;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6, .merriweather {
+            font-family: 'Merriweather', serif;
+        }
+        .bg-primary-container {
+            background-color: #1a365d;
+        }
+        .text-on-primary {
+            color: #ffffff;
+        }
+        .border-secondary-fixed {
+            border-color: #9ff5c1;
+        }
+        .bg-surface-container-lowest {
+            background-color: #ffffff;
+        }
+        .shadow-soft {
+            box-shadow: 0px 4px 12px rgba(26, 54, 93, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface antialiased flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container docked full-width top-0 sticky shadow-md fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-none">
+<div class="font-headline-md text-headline-md font-bold text-on-primary dark:text-on-primary-container">
+            Transitividade Verbal
+        </div>
+<div class="flex space-x-6">
+<a class="border-b-4 border-secondary-fixed text-on-primary font-bold pb-1 scale-95 active:scale-90 transition-transform" href="#teoria">Teoria</a>
+<a class="text-on-primary-fixed-variant font-medium hover:text-secondary-fixed transition-colors duration-200 scale-95 active:scale-90 transition-transform" href="#exercicios">Exercícios</a>
+</div>
+<div>
+<button class="bg-secondary-fixed text-on-secondary-container px-4 py-2 rounded font-label-md text-label-md hover:bg-secondary-fixed-dim transition-colors">Progresso</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="bg-surface-container-low py-stack-xl px-gutter text-center">
+<div class="max-w-container-max mx-auto">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-stack-md">Dominando a Transitividade Verbal</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Bem-vindo ao guia definitivo sobre transitividade verbal. Preparado pelo Professor Eiter, este material foi desenvolvido para simplificar conceitos complexos da língua portuguesa através de teoria clara e exercícios práticos.
+            </p>
+</div>
+</header>
+<div class="flex flex-col lg:flex-row max-w-container-max mx-auto w-full px-margin-mobile md:px-gutter py-stack-xl gap-gutter flex-grow">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-dim text-primary dark:text-primary-fixed-dim font-label-md text-label-md h-screen w-64 hidden lg:block bg-surface-container-low dark:bg-surface-dim shadow-sm sticky top-20 flex flex-col gap-stack-md py-stack-lg rounded-xl overflow-hidden shrink-0">
+<div class="px-4 mb-4">
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Tópicos</h2>
+<p class="text-on-surface-variant text-sm">Navegação Rápida</p>
+</div>
+<nav class="flex flex-col w-full">
+<a class="text-primary font-bold border-l-4 border-primary pl-4 bg-surface-container-high py-3 flex items-center hover:bg-surface-container-highest transition-all translate-x-1 duration-150" href="#vtd">
+<span class="material-symbols-outlined mr-2" data-icon="arrow_forward">arrow_forward</span> VTD
+                </a>
+<a class="text-on-surface-variant pl-4 py-3 flex items-center hover:bg-surface-container-highest transition-all translate-x-1 duration-150" href="#vti">
+<span class="material-symbols-outlined mr-2" data-icon="sync_alt">sync_alt</span> VTI
+                </a>
+<a class="text-on-surface-variant pl-4 py-3 flex items-center hover:bg-surface-container-highest transition-all translate-x-1 duration-150" href="#vtdi">
+<span class="material-symbols-outlined mr-2" data-icon="multiple_stop">multiple_stop</span> VTDI
+                </a>
+<a class="text-on-surface-variant pl-4 py-3 flex items-center hover:bg-surface-container-highest transition-all translate-x-1 duration-150" href="#vi">
+<span class="material-symbols-outlined mr-2" data-icon="stop_circle">stop_circle</span> VI
+                </a>
+<a class="text-on-surface-variant pl-4 py-3 flex items-center hover:bg-surface-container-highest transition-all translate-x-1 duration-150" href="#vl">
+<span class="material-symbols-outlined mr-2" data-icon="link">link</span> VL
+                </a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-grow w-full">
+<!-- Teoria Section -->
+<section class="mb-stack-xl scroll-mt-24" id="teoria">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-lg border-b pb-2 border-outline-variant">Teoria</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- VTD Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-soft p-6 scroll-mt-24" id="vtd">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Verbo Transitivo Direto (VTD)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Exige complemento (Objeto Direto) sem preposição obrigatória.</p>
+<div class="bg-surface-container p-4 rounded-lg">
+<p class="font-body-md text-body-md"><span class="font-bold text-primary">Exemplo:</span> O aluno <strong class="text-primary-container bg-primary-fixed px-1 rounded">comprou</strong> <span class="text-secondary bg-secondary-fixed px-1 rounded">o livro</span>.</p>
+<p class="text-sm mt-2 text-on-surface-variant"><em>comprou</em> = VTD, <em>o livro</em> = Objeto Direto.</p>
+</div>
+</div>
+<!-- VTI Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-soft p-6 scroll-mt-24" id="vti">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Verbo Transitivo Indireto (VTI)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Exige complemento (Objeto Indireto) com preposição obrigatória.</p>
+<div class="bg-surface-container p-4 rounded-lg">
+<p class="font-body-md text-body-md"><span class="font-bold text-primary">Exemplo:</span> O aluno <strong class="text-primary-container bg-primary-fixed px-1 rounded">precisa</strong> <span class="text-tertiary-container bg-tertiary-fixed px-1 rounded">de ajuda</span>.</p>
+<p class="text-sm mt-2 text-on-surface-variant"><em>precisa</em> = VTI, <em>de ajuda</em> = Objeto Indireto.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Exercicios Section -->
+<section class="mb-stack-xl scroll-mt-24" id="exercicios">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-lg border-b pb-2 border-outline-variant">Exercícios</h2>
+<div class="bg-surface-container-lowest rounded-xl shadow-soft p-8 text-center border border-outline-variant">
+<span class="material-symbols-outlined text-6xl text-primary mb-4" data-icon="quiz">quiz</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Teste seus conhecimentos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Complete o desafio de 5 questões para desbloquear o gabarito completo.</p>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-fixed-variant transition-colors shadow-md">Iniciar Desafio</button>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-container text-on-surface dark:text-on-surface-variant font-body-md text-body-md full-width border-t border-outline-variant flat no shadows w-full py-stack-lg px-gutter flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto mt-auto">
+<div class="mb-4 md:mb-0">
+            © 2024 Transitividade Verbal. Todos os direitos reservados.
+        </div>
+<div class="font-headline-md text-headline-md text-primary hidden">Brand Logo</div>
+<div class="flex space-x-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Professor Eiter</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacidade</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Contato</a>
+</div>
+</footer>
+</body></html>

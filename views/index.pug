@@ -1,5 +1,49 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header.hero
+    .container
+      h1.hero__title Dominando a Transitividade Verbal
+      p.hero__subtitle
+        | Bem-vindo ao guia definitivo sobre transitividade verbal. Preparado pelo Professor Eiter,
+        | este material foi desenvolvido para simplificar conceitos complexos da língua portuguesa
+        | através de teoria clara e exercícios práticos.
+
+  .page-layout.container
+    aside.sidebar
+      .sidebar__header
+        h2.sidebar__title Tópicos
+        p.sidebar__subtitle Navegação Rápida
+      nav
+        a.sidebar__link.sidebar__link--active(href='#trans-vs-intrans') Transitivos vs. Intransitivos
+        a.sidebar__link(href='#vtd') VTD
+        a.sidebar__link(href='#vti') VTI
+        a.sidebar__link(href='#vtdi') VTDI
+        a.sidebar__link(href='#vi') VI
+        a.sidebar__link(href='#vl') VL
+        a.sidebar__link(href='#complemento') Complemento Verbal
+        a.sidebar__link(href='#preposicoes') Preposições
+        a.sidebar__link(href='#dicas') Dicas Práticas
+
+    main.main-content
+      include partials/theory
+
+      section.section-block#exercicios
+        h2.section-title Exercícios
+        #quiz-intro.quiz-intro
+          span.material-symbols-outlined.quiz-intro__icon(aria-hidden='true') quiz
+          h3.quiz-intro__title Teste seus conhecimentos
+          p.quiz-intro__text Complete o desafio de 5 questões para desbloquear o gabarito completo.
+          button#btn-start-quiz.btn.btn--primary(type='button') Iniciar Desafio
+
+        #quiz-panel.quiz-panel
+          .quiz-header
+            span#quiz-counter.quiz-header__counter Questão 1 de 5
+          #quiz-questions.quiz-questions
+          #quiz-banner
+          .quiz-actions
+            button#btn-check-quiz.btn.btn--primary(type='button') Verificar Respostas
+            button#btn-retry-quiz.btn.btn--outline.hidden(type='button') Tentar Novamente
+            button#btn-new-challenge.btn.btn--secondary.hidden(type='button') Novo Desafio
+
+      include partials/gabarito
